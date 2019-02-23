@@ -1,8 +1,6 @@
 package model;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 
 public class Pizza {
@@ -71,7 +69,6 @@ public class Pizza {
     }
 
     public void printPizza() {
-
         for (int row = 0; row < this.rows; row++) {
             for (int col = 0; col < this.cols; col++) {
                 System.out.print(this.pizza[row][col] ? "1" : "0");
@@ -80,4 +77,72 @@ public class Pizza {
         }
     }
 
+    public void createSolutionFile() {
+        PrintWriter writer = null;
+        for (Solution solution : this.solutions) {
+            try {
+                writer = new PrintWriter("../files/output/solution" +
+                        solution.hashCode() + ".txt", "UTF-8");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+
+            writer.println(solution.getSlices().size());
+            for (Slice slice : solution.getSlices()) {
+                writer.println(slice.getStartRowIndex() + " " + slice.getStartColIndex() + " " +
+                        slice.getEndRowIndex() + " " + slice.getEndColIndex());
+            }
+            writer.close();
+        }
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public void setRows(int rows) {
+        this.rows = rows;
+    }
+
+    public int getCols() {
+        return cols;
+    }
+
+    public void setCols(int cols) {
+        this.cols = cols;
+    }
+
+    public int getMinIngredientsPerSlice() {
+        return minIngredientsPerSlice;
+    }
+
+    public void setMinIngredientsPerSlice(int minIngredientsPerSlice) {
+        this.minIngredientsPerSlice = minIngredientsPerSlice;
+    }
+
+    public int getMaxCellsPerSlice() {
+        return maxCellsPerSlice;
+    }
+
+    public void setMaxCellsPerSlice(int maxCellsPerSlice) {
+        this.maxCellsPerSlice = maxCellsPerSlice;
+    }
+
+    public boolean[][] getPizza() {
+        return pizza;
+    }
+
+    public void setPizza(boolean[][] pizza) {
+        this.pizza = pizza;
+    }
+
+    public ArrayList<Solution> getSolutions() {
+        return solutions;
+    }
+
+    public void setSolutions(ArrayList<Solution> solutions) {
+        this.solutions = solutions;
+    }
 }
