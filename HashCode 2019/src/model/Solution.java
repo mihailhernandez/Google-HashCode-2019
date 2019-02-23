@@ -3,19 +3,19 @@ package model;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Solution {
+class Solution {
 
     private ArrayList<Slice> slices;
 
-    public Solution(ArrayList<Slice> slices) {
+    Solution(ArrayList<Slice> slices) {
         this.slices = slices;
     }
 
-    public ArrayList<Slice> getSlices() {
+    ArrayList<Slice> getSlices() {
         return slices;
     }
 
-    public void setSlices(ArrayList<Slice> slices) {
+    void setSlices(ArrayList<Slice> slices) {
         this.slices = slices;
     }
 

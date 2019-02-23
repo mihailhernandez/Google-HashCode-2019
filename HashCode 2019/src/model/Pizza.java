@@ -1,6 +1,10 @@
 package model;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class Pizza {
@@ -54,13 +58,12 @@ public class Pizza {
         for (Solution solution : this.solutions) {
             try {
                 writer = new PrintWriter("../files/output/solution" +
-                        solution.hashCode() + ".txt", "UTF-8");
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (UnsupportedEncodingException e) {
+                        solution.hashCode() + ".txt", StandardCharsets.UTF_8);
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
+            assert writer != null;
             writer.println(solution.getSlices().size());
             for (Slice slice : solution.getSlices()) {
                 writer.println(slice.getStartRowIndex() + " " + slice.getStartColIndex() + " " +

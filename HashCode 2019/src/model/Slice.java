@@ -1,41 +1,48 @@
 package model;
 
-public class Slice {
+class Slice {
 
     private int startRowIndex;
     private int endRowIndex;
     private int startColIndex;
     private int endColIndex;
 
-    public int getStartRowIndex() {
+    Slice(int startRowIndex, int endRowIndex, int startColIndex, int endColIndex) {
+        this.startRowIndex = startRowIndex;
+        this.endRowIndex = endRowIndex;
+        this.startColIndex = startColIndex;
+        this.endColIndex = endColIndex;
+    }
+
+    int getStartRowIndex() {
         return startRowIndex;
     }
 
-    public void setStartRowIndex(int startRowIndex) {
+    void setStartRowIndex(int startRowIndex) {
         this.startRowIndex = startRowIndex;
     }
 
-    public int getEndRowIndex() {
+    int getEndRowIndex() {
         return endRowIndex;
     }
 
-    public void setEndRowIndex(int endRowIndex) {
+    void setEndRowIndex(int endRowIndex) {
         this.endRowIndex = endRowIndex;
     }
 
-    public int getStartColIndex() {
+    int getStartColIndex() {
         return startColIndex;
     }
 
-    public void setStartColIndex(int startColIndex) {
+    void setStartColIndex(int startColIndex) {
         this.startColIndex = startColIndex;
     }
 
-    public int getEndColIndex() {
+    int getEndColIndex() {
         return endColIndex;
     }
 
-    public void setEndColIndex(int endColIndex) {
+    void setEndColIndex(int endColIndex) {
         this.endColIndex = endColIndex;
     }
 }
