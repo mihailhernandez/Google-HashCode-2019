@@ -29,12 +29,26 @@ public class Pizza {
 
             this.pizza = new boolean[rows][cols];
 
-            while ((line = reader.readLine()) != null) {
+            for (int row = 0, col = 0; (line = reader.readLine()) != null; row++) {
                 String[] cells = line.split("");
+                for (String str : cells) {
+                    this.pizza[row][col++] = str.equals("M");
+                }
+                col = 0;
             }
         } catch (
                 Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void printPizza() {
+
+        for (int row = 0; row < this.rows; row++) {
+            for (int col = 0; col < this.cols; col++) {
+                System.out.print(this.pizza[row][col] ? "1" : "0");
+            }
+            System.out.println();
         }
     }
 
