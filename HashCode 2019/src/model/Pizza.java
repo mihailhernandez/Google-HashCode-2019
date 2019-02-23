@@ -40,6 +40,34 @@ public class Pizza {
         }
     }
 
+    // Implementing Misho's greedy idea
+    public void solve() {
+        int maxCellsRows = this.maxCellsPerSlice > this.rows ? this.rows : this.maxCellsPerSlice;
+        int maxCellsColumns = this.maxCellsPerSlice > this.cols ? this.cols: this.maxCellsPerSlice;
+
+        int tomatoesCountRow = 0;
+        int mushroomsCountRow = 0;
+        for (int i = 0; i < maxCellsRows; i++) {
+            if (this.pizza[i][0]) {
+                mushroomsCountRow++;
+            } else {
+                tomatoesCountRow++;
+            }
+        }
+
+        int tomatoesCountColumn = 0;
+        int mushroomsCountColumn = 0;
+        for (int i = 0; i < maxCellsColumns; i++) {
+            if (this.pizza[0][i]) {
+                mushroomsCountRow++;
+            } else {
+                tomatoesCountRow++;
+            }
+        }
+
+        // TODO: Calculate pizza weight and get the better one
+    }
+
     public void printPizza() {
         for (int row = 0; row < this.rows; row++) {
             for (int col = 0; col < this.cols; col++) {
